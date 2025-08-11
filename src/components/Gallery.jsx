@@ -9,11 +9,11 @@ export default function Gallery({
   return (
     <div>
       <div className="mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-2">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
           {title}
         </h2>
         {description && (
-          <p className="text-neutral-600 max-w-2xl">{description}</p>
+          <p className="text-neutral-300 max-w-2xl">{description}</p>
         )}
       </div>
 
@@ -26,10 +26,10 @@ export default function Gallery({
                   publicId={artwork.id}
                   alt={artwork.title}
                   aspect={artwork.aspect}
-                  className="w-full shadow-md transition-transform duration-300 group-hover:scale-105"
+                  className="w-full shadow-lg transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <figcaption className="mt-3 text-sm text-neutral-600">
+              <figcaption className="mt-3 text-sm text-neutral-300">
                 {artwork.title}
               </figcaption>
             </figure>
@@ -44,10 +44,10 @@ export default function Gallery({
                   publicId={artwork.id}
                   alt={artwork.title}
                   aspect={artwork.aspect}
-                  className="w-full shadow-md transition-transform duration-300 group-hover:scale-105"
+                  className="w-full shadow-lg transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <figcaption className="mt-3 text-sm text-neutral-600">
+              <figcaption className="mt-3 text-sm text-neutral-300">
                 {artwork.title}
               </figcaption>
             </figure>
@@ -56,7 +56,7 @@ export default function Gallery({
       )}
 
       {artworks.length === 0 && (
-        <div className="text-center py-16 text-neutral-500">
+        <div className="text-center py-16 text-neutral-400">
           <p className="text-lg">No artworks found in this collection.</p>
           <p className="text-sm mt-2">
             Images will appear here once uploaded to Cloudinary.
