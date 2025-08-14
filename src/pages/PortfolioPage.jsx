@@ -25,7 +25,7 @@ export default function PortfolioPage() {
           </div>
 
           {/* Text overlay */}
-          <div className="bg-black/80 relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-10 flex items-center justify-center h-full">
             <h2
               className="text-4xl md:text-6xl lg:text-7xl font-extralight text-white tracking-wide group-hover:scale-105 transition-transform duration-300"
               style={{ fontFamily: "'Italiana', serif" }}
@@ -48,7 +48,7 @@ export default function PortfolioPage() {
           </div>
 
           {/* Text overlay */}
-          <div className="bg-black/80 relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-10 flex items-center justify-center h-full">
             <h2
               className="text-4xl md:text-6xl lg:text-7xl font-extralight text-white tracking-wide group-hover:scale-105 transition-transform duration-300"
               style={{ fontFamily: "'Italiana', serif" }}
