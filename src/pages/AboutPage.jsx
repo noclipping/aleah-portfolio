@@ -58,7 +58,7 @@ export default function AboutPage() {
             </h2>
             <div className="flex flex-col sm:flex-row gap-6 text-lg">
               <a
-                href="mailto:aleah.slish@gmail.com"
+                href="mailto:aleahslish@gmail.com"
                 className="flex items-center gap-2 text-neutral-300 hover:text-white transition-colors duration-200"
               >
                 <svg
