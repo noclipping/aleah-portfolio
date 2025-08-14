@@ -1,18 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navigation() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
 
   const navItems = [
+    { path: "/portfolio", label: "Portfolio", description: "Collections" },
     { path: "/about", label: "About", description: "Artist Bio" },
-    { path: "/cyanotypes", label: "Cyanotypes", description: "Blue Dreams" },
-    {
-      path: "/monoprints",
-      label: "Monoprints",
-      description: "Unique Impressions",
-    },
   ];
 
   const toggleMobileMenu = () => {
@@ -22,6 +18,26 @@ export default function Navigation() {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
+
+  // Handle click outside mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        closeMobileMenu();
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-sm border-b border-neutral-800">
@@ -34,8 +50,8 @@ export default function Navigation() {
             onClick={closeMobileMenu}
           >
             <span
-              className="text-2xl font-extralight tracking-wider"
-              style={{ fontFamily: "'Playwrite AU QLD', cursive" }}
+              className="text-4xl font-extralight tracking-wider"
+              style={{ fontFamily: "'Italiana', serif" }}
             >
               AS
             </span>
@@ -100,7 +116,10 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-neutral-800 bg-black bg-opacity-95">
+        <div
+          ref={mobileMenuRef}
+          className="md:hidden border-t border-neutral-800 bg-black bg-opacity-95"
+        >
           <div className="px-4 py-2 space-y-1">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;

@@ -5,7 +5,7 @@ export default function CloudImage({
   alt,
   widths = [400, 800, 1200, 1600],
   sizes = "(max-width: 768px) 100vw, 800px",
-  aspect = 4 / 3,
+  aspect = null,
   className = "",
 }) {
   return (
@@ -15,7 +15,7 @@ export default function CloudImage({
       sizes={sizes}
       alt={alt}
       loading="lazy"
-      style={{ aspectRatio: String(aspect) }}
+      style={aspect ? { aspectRatio: String(aspect) } : {}}
       className={className}
     />
   );
